@@ -1,5 +1,6 @@
 module.exports = async (req, res) => {
-  res.setHeader('Location', req.headers.referer)
+  const gitpodURL = `https://gitpod.io/#${req.headers.referer}`
+  res.setHeader('Location', gitpodURL)
   res.status(302)
-  res.send(`Redirecting to ${res.getHeader('location')}`)
+  res.send(`Redirecting to ${gitpodURL}`)
 }
